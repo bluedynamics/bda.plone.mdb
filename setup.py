@@ -3,9 +3,11 @@ import sys, os
 
 version = "1.0"
 shortdesc ="cone.app.mdb connector for Plone"
-longdesc = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read() 
-longdesc += open(os.path.join(os.path.dirname(__file__), 'docs', 'CHANGELOG.txt')).read()
-longdesc += open(os.path.join(os.path.dirname(__file__), 'docs', 'LICENSE.txt')).read()
+currentdir = os.path.dirname(__file__)
+longdesc = open(os.path.join(currentdir, 'README.rst')).read() 
+longdesc += open(os.path.join(currentdir, 'CHANGELOG.rst')).read()
+longdesc += open(os.path.join(currentdir, 'LICENSE.rst')).read()
+tests_require = ['interlude',]
 
 setup(name='bda.plone.mdb',
       version=version,
@@ -33,12 +35,13 @@ setup(name='bda.plone.mdb',
       install_requires=[
           'setuptools',
           'Plone',
+          'restkit',
       ],
-      extras_require={
-          'test': [
-              'interlude',              
-          ],
-          'file': [
+      tests_require=tests_require,
+      test_suite="bda.plone.mdb.tests.test_suite",
+      extras_require = {
+          'test': tests_require,
+          'contenttype': [
               'archetypes.schemaextender',
           ],
       },
@@ -47,3 +50,4 @@ setup(name='bda.plone.mdb',
       target = plone
       """      
 )
+
