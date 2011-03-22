@@ -1,7 +1,0 @@
-Connection testing against MBD
-==============================
-
-Setup::
-    
-    >>> url = 'http://localhost:8082/'   
-    >>> interact(locals())

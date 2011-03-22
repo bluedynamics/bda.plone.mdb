@@ -9,15 +9,14 @@ HEADERS = {
     'Content-Type': 'text/plain',
 }        
 
-class MDBCommunicator(object):
+class MDB(object):
     
-    def __init__(self, baseuri, pool=None):
+    def __init__(self, baseuri):
         self._uri = baseuri
-        self.pool = pool or restkit.get_default_manager()
                 
     @property
     def _resource(self):        
-        return restkit.Resource(self._uri, pool_instance=self.pool)
+        return restkit.Resource(self._uri)
     
     def search(self, term):
         """searches mdb with term.
@@ -54,6 +53,7 @@ class MDBCommunicator(object):
                 description: String
                 mimetype: String
                 filename: String
+                size: int
                 alttag: String                            
         """
         path = 'info/%s' % uid

@@ -1,0 +1,9 @@
+Connection testing against MBD
+==============================
+
+Setup::
+    
+    >>> from bda.plone.mdb.connector import MDB 
+    >>> mdb = MDB('http://localhost:8082/')
+
+    >>> interact(locals())    
