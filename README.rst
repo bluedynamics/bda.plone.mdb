@@ -1,5 +1,5 @@
-Dynamic Tree-Widget for Plone
-=============================
+MDB Integration for Plone
+=========================
 
 Installation
 ============
